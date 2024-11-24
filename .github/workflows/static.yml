@@ -16,7 +16,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3  # Aceasta publică pe GitHub Pages
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Directorul care conține fișierele HTML (./ pentru rădăcina repository-ului)
+          github_token: ArminAlba.gifthub.io
+          publish_dir: ./  
 
 
