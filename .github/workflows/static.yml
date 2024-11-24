@@ -1,18 +1,22 @@
-on:
-push:
-branches:
--main
--release/*
+name: Deploy to GitHub Pages
 
 on:
--pull_request
-branches:
--main
+  push:
+    branches:
+      - main  # Asigură-te că branch-ul tău principal este corect
 
-on:
-schedule:
--cron:  "0 2 * *  1-5"
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-on:
-workflow_dispatch
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Aceasta aduce codul din repository
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3  # Aceasta publică pe GitHub Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # Directorul care conține fișierele HTML (./ pentru rădăcina repository-ului)
+
 
